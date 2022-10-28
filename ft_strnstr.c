@@ -6,31 +6,35 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:21:40 by mreborda          #+#    #+#             */
-/*   Updated: 2022/10/25 18:21:48 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/10/28 17:28:34 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+#include "libft.h"
+
+char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
 	size_t	i;
 	size_t	f;
 
 	f = 0;
 	i = 0;
-	if (s2[0] == '\0')
-		return ((char *)s1);
-	while (n > i && s1[i] != '\0')
+	if (n == 0)
+		return (NULL);
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (n > i && big[i] != '\0')
 	{
-		if (s1[i] == s2[f])
+		if (big[i] == little[f])
 		{
-			while (i + f < n && s1[i + f] == s2[j])
+			while (i + f < n && big[i + f] == little[i])
 			{
-				if (s1[i + f] == '\0')
-					return ((char *)s1 + f);
+				if (little[i + f] == '\0')
+					return ((char *)big + f);
 				i++;
 			}
 		}
 		f++;
 	}
-	return (NULL)
+	return (0);
 }

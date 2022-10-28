@@ -6,17 +6,21 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:20:37 by mreborda          #+#    #+#             */
-/*   Updated: 2022/10/25 18:20:41 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/10/28 16:48:00 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *str, int c, size_t n)
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	n--;
-	while (n > 0)
+	size_t	a;
+
+	a = 0;
+	while (a < n)
 	{
-		str[n] = c;
-		n--;
+		((unsigned char *)s)[a] = c;
+		a++;
 	}
-	return (str);
+	return (s);
 }

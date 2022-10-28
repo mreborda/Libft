@@ -6,11 +6,11 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:21:19 by mreborda          #+#    #+#             */
-/*   Updated: 2022/10/25 18:21:24 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:38:52 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 

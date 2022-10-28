@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 18:19:09 by mreborda          #+#    #+#             */
-/*   Updated: 2022/10/25 18:30:35 by mreborda         ###   ########.fr       */
+/*   Created: 2022/10/28 17:20:01 by mreborda          #+#    #+#             */
+/*   Updated: 2022/10/28 17:47:24 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *str, int c)
-{
+char	*ft_strchr(const char *str, int c)
+{	
 	int	i;
 
 	i = 0;
@@ -20,6 +20,8 @@ char	*strchr(const char *str, int c)
 		if (c == str[i])
 			return ((char *)str + i);
 		i++;
-	}
-	return (NULL);	
+	}	
+	if (c == '\0')
+		return ((char *)str);
+	return (0);
 }

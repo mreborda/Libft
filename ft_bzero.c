@@ -6,9 +6,11 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:02:47 by mreborda          #+#    #+#             */
-/*   Updated: 2022/10/26 14:38:19 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/10/28 16:48:47 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

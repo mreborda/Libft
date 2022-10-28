@@ -6,13 +6,13 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:19:52 by mreborda          #+#    #+#             */
-/*   Updated: 2022/10/25 18:19:56 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:09:10 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int a)
 {
-	if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z')
+	if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z'))
 		return (1);
 	else
 		return (0);
