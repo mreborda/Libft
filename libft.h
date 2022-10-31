@@ -6,7 +6,7 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:20:00 by mreborda          #+#    #+#             */
-/*   Updated: 2022/10/28 17:35:04 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/10/31 15:09:13 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,18 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+/* MAIN */
+
 /* ctype.h */
 int		ft_isalpha(int a);
 int		ft_isdigit(int a);
 int		ft_isalnum(int a);
 int		ft_isprint(int a);
 int		ft_isascii(int a);
-/* int		ft_tolower(int c);
-int		ft_toupper(int c); */
+int		ft_tolower(int c);
+int		ft_toupper(int c);
 /* string.h */
-char	*ft_strnstr(const char	*big, const char *little, size_t len);
+char	*ft_strnstr(const char	*big, const char *little, size_t n);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *str);
@@ -46,9 +48,11 @@ size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 /* stdlib.h */
 int		ft_atoi(const char *str);
-/* void	*ft_calloc(size_t number, size_t size); */
+void	*ft_calloc(size_t nitems, size_t size);
+char	*ft_strdup(const char *str);
 
-/* ADDITIONAL */
+/* SECONDARY */
+
 /* void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
@@ -62,6 +66,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c); */
 
 /* BONUS */
+
 /* t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
