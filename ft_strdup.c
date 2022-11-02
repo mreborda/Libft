@@ -6,7 +6,7 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 14:57:14 by mreborda          #+#    #+#             */
-/*   Updated: 2022/10/31 15:12:18 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/11/02 12:05:47 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 char	*ft_strdup(const char *str)
 {
-	int		i;
 	char	*s;
 
-	i = 0;
 	s = (char *)malloc(sizeof(char) * ft_strlen(str) + 1);
-	if (s[i] == '\0')
+	if (!s)
 		return (NULL);
-	while (s[i] != '\0')
-	{
-		s[i] = str[i];
-		i++;
-	}
-	s[i] = '\0';
+	ft_memcpy(s, str, ft_strlen(str) + 1);
 	return (s);
 }
