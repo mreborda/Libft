@@ -6,7 +6,7 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 17:20:01 by mreborda          #+#    #+#             */
-/*   Updated: 2022/11/03 15:05:53 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:49:34 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strchr(const char *str, int c)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == c)
-			return ((char *)(str + i));
+		if (str[i] == (char)c)
+			return ((char *)str + i);
 		i++;
 	}
-	if (c == '\0')
+	if (str[i] == (char)c)
 		return ((char *)str + i);
-	return (0);
+	return (NULL);
 }

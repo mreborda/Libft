@@ -6,31 +6,33 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:19:48 by mreborda          #+#    #+#             */
-/*   Updated: 2022/11/09 16:35:22 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:12:18 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**sep_count(char const *s, char c)
+int	sep_count(char const *s, char c)
 {
 	int		d;
+	int		w;
 	int		i;
-	char	**str;
 
 	d = 0;
+	w = 0;
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			d++;
+		if (s[i] != c && d == 0)
+		{
+			d = 1;
+			w++;
+		}
+		else if (s[i] == c)
+			d = 0;
 		i++;
 	}
-	str = (char **)malloc((d + 2) * sizeof(char *));
-	if (!str)
-		return (NULL);
-	str[d + 1] = '\0';
-	return (str);
+	return (w);
 }
 
 int	wl(char const *s, char c, int i)
@@ -42,7 +44,16 @@ int	wl(char const *s, char c, int i)
 		d++;
 	while (s[i] != '\0' && s[i] != c)
 		i++;
+	if (i - d == 0)
+		return (0);
 	return (i - d);
+}
+
+int	aux(char const *s, int i, char c)
+{
+	while (s[i] == c)
+			i++;
+	return (i);
 }
 
 char	**ft_split(char const *s, char c)
@@ -53,22 +64,33 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 
 	i = 0;
-	nmb = 0;
-	str = sep_count(s, c);
+	nmb = -1;
+	str = (char **)malloc((sep_count(s, c) + 1) * sizeof(char *));
+	if (!str)
+		return (NULL);
+	str[sep_count(s, c)] = 0;
 	while (s[i] != '\0')
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != c)
+		i = aux(s, i, c);
+		if (s[i] != c && s[i])
 		{	
 			k = 0;
-			str[nmb] = (char *)ft_calloc((wl(s, c, i) + 1), sizeof(char));
+			str[++nmb] = (char *)ft_calloc((wl(s, c, i) + 1), sizeof(char));
 			if (!str[nmb])
 				return (NULL);
 			while (s[i] && s[i] != c)
 				str[nmb][k++] = s[i++];
-			nmb++;
 		}
 	}
 	return (str);
 }
+
+/* int	main(void)
+{
+	char **tab = ft_split("tripouille", 0);
+	int a = strcmp(tab[0], "tripouille");
+	printf("%d\n", a);
+	
+	return (0);
+} 
+ */

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 18:20:49 by mreborda          #+#    #+#             */
-/*   Updated: 2022/11/15 16:58:16 by mreborda         ###   ########.fr       */
+/*   Created: 2022/11/14 11:03:54 by mreborda          #+#    #+#             */
+/*   Updated: 2022/11/14 11:14:17 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	n;
-	size_t	d;
-	size_t	s;
+	unsigned int	e;
+	char			*str;
 
-	i = 0;
-	s = ft_strlen(src);
-	d = ft_strlen(dest);
-	n = d;
-	if (size <= d)
-		return (size + s);
-	while (src[i] != '\0' && size - 1 > d)
-		dest[d++] = src[i++];
-	dest[d] = '\0';
-	return (s + n);
+	e = 0;
+	str = (char *)ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s[e] != 0)
+	{
+		str[e] = f(e, s[e]);
+		e++;
+	}
+	return (str);
 }
