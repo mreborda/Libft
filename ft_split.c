@@ -6,7 +6,7 @@
 /*   By: mreborda <mreborda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:19:48 by mreborda          #+#    #+#             */
-/*   Updated: 2022/11/16 16:12:18 by mreborda         ###   ########.fr       */
+/*   Updated: 2022/11/17 11:40:11 by mreborda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (str);
 }
-
-/* int	main(void)
-{
-	char **tab = ft_split("tripouille", 0);
-	int a = strcmp(tab[0], "tripouille");
-	printf("%d\n", a);
-	
-	return (0);
-} 
- */
